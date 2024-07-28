@@ -36,8 +36,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.retrofit.domain.model.Model
 import com.example.retrofit.presentation.ui.theme.RetrofitTheme
+import com.example.retrofit_api.movie_app.movie_model.Result
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -68,10 +68,8 @@ class MainActivity : ComponentActivity() {
 fun ShowRetrofit(
     viewModel: MainActivityViewModel = hiltViewModel()
 ) {
-    val list by viewModel.todos.collectAsState()
 
-    viewModel.fetchTodos()
-
+    val list = viewModel.state.data
 
     Box(
         modifier = Modifier
@@ -106,7 +104,7 @@ fun ShowRetrofit(
 
 @Composable
 fun MyScreen(
-    itemIndex: Int, itemList: Model
+    itemIndex: Int, itemList: List<Result>
 ) {
     Box(
         modifier = Modifier
@@ -157,7 +155,7 @@ fun MyScreen(
                             fontSize = 5.sp,
                         )
                         Spacer(modifier = Modifier.padding(2.dp))
-                        Text(text = "${itemList[itemIndex].completed}")
+                        Text(text = "${itemList[itemIndex].adult}")
 
                     }
                 }

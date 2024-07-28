@@ -2,7 +2,7 @@ package com.example.retrofit.data.network
 
 import androidx.lifecycle.LiveData
 import com.example.retrofit.core.Constants
-import com.example.retrofit.domain.model.Model
+import com.example.retrofit.domain.model.movie_model.MovieDto
 import kotlinx.coroutines.flow.Flow
 import retrofit2.Response
 import retrofit2.http.GET
@@ -16,5 +16,5 @@ interface ApiService {
         @Path("type") type: String,
         @Query("page") page:Int,
         @Query("api_key") apiKey: String = Constants.API_KEY
-    )
+    ): Response<MovieDto>
 }

@@ -1,6 +1,9 @@
 package com.example.retrofit.di
 
+import com.example.retrofit.core.Constants
 import com.example.retrofit.data.network.ApiService
+import com.example.retrofit.data.remote.RepositoryImpl
+import com.example.retrofit.domain.repository.Repository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,14 +16,11 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
-    @Provides
-    fun provideBaseUrl(): String = "https://jsonplaceholder.typicode.com/"
-
 
     @Provides
     @Singleton
-    fun retrofitInstance2(baseUrl: String): Retrofit = Retrofit.Builder()
-        .baseUrl(baseUrl)
+    fun retrofitInstance2(): Retrofit = Retrofit.Builder()
+        .baseUrl(Constants.BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
@@ -30,5 +30,4 @@ object AppModule {
     @Provides
     @Singleton
     fun provideApiService(retrofit: Retrofit): ApiService = retrofit.create(ApiService::class.java)
-
 }
