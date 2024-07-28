@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.retrofit.core.Constants
 import com.example.retrofit.domain.repository.Repository
 import com.example.retrofit_api.movie_app.movie_model.Result
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -20,11 +21,7 @@ class MainActivityViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            val response = repository.getMovieList( )
-            if (!response.isSuccessful) {
-                return@launch
-            }
-            val movieResults = response.body()?.results
+            val movieResults = repository.getMovieList(Constants.MOVIE_TYPE_POPULAR,1).body()?.results
             if (movieResults != null) {
                 state = state.copy(dataItems = movieResults)
             } else {
