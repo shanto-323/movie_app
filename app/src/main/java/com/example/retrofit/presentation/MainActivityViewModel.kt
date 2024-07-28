@@ -21,7 +21,7 @@ class MainActivityViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            val movieResults = repository.getMovieList(Constants.MOVIE_TYPE_POPULAR,1).body()?.results
+            val movieResults = repository.getMovieList(Constants.MOVIE_TYPE_POPULAR,2).body()?.results
             if (movieResults != null) {
                 state = state.copy(dataItems = movieResults)
             } else {
