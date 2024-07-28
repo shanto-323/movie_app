@@ -20,12 +20,10 @@ class MainActivityViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            val response = repository.getMovieList()
-
+            val response = repository.getMovieList( )
             if (!response.isSuccessful) {
                 return@launch
             }
-
             val movieResults = response.body()?.results
             if (movieResults != null) {
                 state = state.copy(dataItems = movieResults)
