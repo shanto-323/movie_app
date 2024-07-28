@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -40,8 +41,8 @@ fun Screen(
             Column(
                 modifier = Modifier.padding(paddingValues)
             ) {
-                LazyVerticalGrid(
-                    columns = GridCells.Fixed(2),
+
+                LazyColumn(
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(10.dp)
@@ -50,6 +51,16 @@ fun Screen(
                         MyScreenDraw(it,list)
                     }
                 }
+//                LazyVerticalGrid(
+//                    columns = GridCells.Fixed(2),
+//                    modifier = Modifier
+//                        .fillMaxSize()
+//                        .padding(10.dp)
+//                ) {
+//                    items(list.size) {
+//                        MyScreenDraw(it,list)
+//                    }
+//                }
             }
         })
     }
