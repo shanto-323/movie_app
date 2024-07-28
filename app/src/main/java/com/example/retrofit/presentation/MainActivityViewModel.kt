@@ -15,19 +15,29 @@ import javax.inject.Inject
 class MainActivityViewModel @Inject constructor(
     private val repository: Repository
 ) : ViewModel() {
-    var state by mutableStateOf(MovieState())
+
+    var state by mutableStateOf(ScreenState())
 
     init {
         viewModelScope.launch {
-            val response = repository.getMovieList("popular", 1)
-            state = state.copy(
-                data = response.body()!!.results
-            )
+            val response = repository.getMovieList()
+
+            if (!response.isSuccessful) {
+                return@launch
+            }
+
+            val movieResults = response.body()?.results
+            if (movieResults != null) {
+                state = state.copy(dataItems = movieResults)
+            } else {
+                println{"Movie results is null"}
+            }
         }
     }
+
 }
 
 
-data class MovieState(
-    val data: List<Result> = emptyList()
+data class ScreenState(
+    val dataItems: List<Result> = emptyList()
 )

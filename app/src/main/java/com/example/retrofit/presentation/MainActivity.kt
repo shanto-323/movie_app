@@ -57,19 +57,13 @@ class MainActivity : ComponentActivity() {
 
 
 
-
-
-
-
-
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ShowRetrofit(
     viewModel: MainActivityViewModel = hiltViewModel()
 ) {
 
-    val list = viewModel.state.data
+    val list = viewModel.state.dataItems
 
     Box(
         modifier = Modifier

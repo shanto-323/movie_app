@@ -2,8 +2,6 @@ package com.example.retrofit.di
 
 import com.example.retrofit.core.Constants
 import com.example.retrofit.data.network.ApiService
-import com.example.retrofit.data.remote.RepositoryImpl
-import com.example.retrofit.domain.repository.Repository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

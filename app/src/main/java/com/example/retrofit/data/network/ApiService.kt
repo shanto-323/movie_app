@@ -10,11 +10,16 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiService {
+//
+//    @GET("movies/{type}")
+//    suspend fun getMovieList(
+//        @Path("type") type: String,
+//        @Query("page") page:Int,
+//        @Query("api_key") apiKey: String = Constants.API_KEY
+//    ): Response<MovieDto>
 
-    @GET("movies/{type}")
+    @GET("movie/popular")
     suspend fun getMovieList(
-        @Path("type") type: String,
-        @Query("page") page:Int,
-        @Query("api_key") apiKey: String = Constants.API_KEY
-    ): Response<MovieDto>
+        @Query("api_key") apiKey:String = Constants.API_KEY
+    ):Response<MovieDto>
 }
