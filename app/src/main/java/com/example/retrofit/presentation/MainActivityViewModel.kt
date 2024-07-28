@@ -17,22 +17,5 @@ class MainActivityViewModel @Inject constructor(
     private val repository: Repository
 ) : ViewModel() {
 
-    var state by mutableStateOf(ScreenState())
-
-    init {
-        viewModelScope.launch {
-            val movieResults = repository.getMovieList(Constants.MOVIE_TYPE_POPULAR,2).body()?.results
-            if (movieResults != null) {
-                state = state.copy(dataItems = movieResults)
-            } else {
-                println{"Movie results is null"}
-            }
-        }
-    }
 
 }
-
-
-data class ScreenState(
-    val dataItems: List<Result> = emptyList()
-)
