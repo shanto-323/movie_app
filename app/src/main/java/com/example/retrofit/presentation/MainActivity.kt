@@ -3,7 +3,9 @@ package com.example.retrofit.presentation
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.example.retrofit.presentation.movie_screen.Screen
+import androidx.navigation.compose.rememberNavController
+import com.example.retrofit.presentation.navigation.NavGraph
+import com.example.retrofit.presentation.temp_screen_create.MainScreen
 import com.example.retrofit.presentation.ui.theme.RetrofitTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -16,7 +18,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             RetrofitTheme {
-                Screen()
+                val navController = rememberNavController()
+//                NavGraph(navController = navController)
+                MainScreen()
             }
         }
     }
