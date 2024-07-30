@@ -34,7 +34,7 @@ fun DetailItemScreen(
 ) {
     val scrollState = rememberScrollState()
     viewModel.getMovie(itemIndex)
-    val movie = viewModel.state.result
+    val movie = viewModel.state.movieResult
     Column(
         modifier = Modifier
             .fillMaxSize()

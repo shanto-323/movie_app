@@ -19,12 +19,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
-import coil.compose.rememberAsyncImagePainter
-import com.example.retrofit.core.Constants
-import com.example.retrofit.presentation.movie_screen.ScreenViewModel
-import com.example.retrofit.presentation.movie_screen.items.Event
-import com.example.retrofit_api.movie_app.movie_model.Result
 
 @Composable
 fun Card(

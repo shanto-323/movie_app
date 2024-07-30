@@ -21,14 +21,13 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.example.retrofit.core.Constants
-import com.example.retrofit.presentation.movie_screen.ScreenViewModel
-import com.example.retrofit.presentation.movie_screen.items.Event
-import com.example.retrofit_api.movie_app.movie_model.Result
+import com.example.retrofit.domain.model.tv_model.TvResult
+import com.example.retrofit_api.movie_app.movie_model.MovieResult
 
 @Composable
 fun ItemsScreen(
     itemIndex: Int,
-    list: List<Result>,
+    list: List<MovieResult>,
     navController: NavController
 ) {
     Card(

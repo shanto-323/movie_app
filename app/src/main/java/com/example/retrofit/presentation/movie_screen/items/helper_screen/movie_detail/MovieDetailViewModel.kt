@@ -5,7 +5,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.NavController
 import com.example.retrofit.domain.repository.Repository
 import com.example.retrofit.presentation.movie_screen.items.State
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -23,7 +22,7 @@ class MovieDetailViewModel @Inject constructor(
         viewModelScope.launch {
             val movie = repository.getMovie(id).body()
             if (movie != null) {
-                state = state.copy(result = movie)
+                state = state.copy(movieResult = movie)
             } else {
                 println{"Movie results is null"}
             }

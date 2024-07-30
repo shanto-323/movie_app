@@ -10,8 +10,6 @@ import com.example.retrofit.presentation.ui.theme.RetrofitTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 
-
-
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,8 +17,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             RetrofitTheme {
                 val navController = rememberNavController()
-//                NavGraph(navController = navController)
-                MainScreen()
+                NavGraph(navController = navController)
+//                MainScreen()
             }
         }
     }
