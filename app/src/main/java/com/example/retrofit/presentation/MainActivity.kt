@@ -18,7 +18,6 @@ class MainActivity : ComponentActivity() {
             RetrofitTheme {
                 val navController = rememberNavController()
                 NavGraph(navController = navController)
-//                MainScreen()
             }
         }
     }
