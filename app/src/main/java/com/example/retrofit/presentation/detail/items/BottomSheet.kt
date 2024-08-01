@@ -1,11 +1,13 @@
 package com.example.retrofit.presentation.detail.items
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.BottomSheetScaffold
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -42,6 +44,25 @@ fun BottomSheet(
         Spacer(modifier = Modifier.padding(10.dp))
         Image(painter = painterResource(id = R.drawable.poster), contentDescription = "")
     }
+}
+
+@Composable
+fun VideoView(id: Int) {
+    val webView = rememberWebViewState(url = "${Constants.VIDEO_LINK}$id")
+    WebView(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(300.dp)
+            .clickable(
+                enabled = true,onClick = {}),
+        state = webView,
+        onCreated = {
+            it
+            it.settings.javaScriptEnabled = true
+            it.settings.mediaPlaybackRequiresUserGesture = false
+        },
+        captureBackPresses = false
+    )
 }
 
 
