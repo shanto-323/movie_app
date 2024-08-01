@@ -1,4 +1,4 @@
-package com.example.retrofit.presentation.movie_screen.items.helper_screen.movie_detail
+package com.example.retrofit.presentation.detail
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -6,7 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.retrofit.domain.repository.Repository
-import com.example.retrofit.presentation.movie_screen.items.State
+import com.example.retrofit.presentation.movie.items.State
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

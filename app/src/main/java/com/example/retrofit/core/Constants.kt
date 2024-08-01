@@ -15,9 +15,7 @@ object Constants {
     const val MOVIE_TYPE_UPCOMING = "upcoming"
 
 
-
     //SCREENS
     const val SCREEN = "screen"
     const val DETAIL_ITEM_SCREEN = "detail_item_screen/{$ITEM_INDEX}"
-
 }

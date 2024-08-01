@@ -1,4 +1,4 @@
-package com.example.retrofit.presentation.movie_screen.items.helper_screen.movie_detail
+package com.example.retrofit.presentation.detail
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberAsyncImagePainter
 import com.example.retrofit.core.Constants
-import com.example.retrofit.presentation.movie_screen.items.components.SimpleText
+import com.example.retrofit.presentation.components.SimpleText
 
 @Composable
 fun DetailItemScreen(

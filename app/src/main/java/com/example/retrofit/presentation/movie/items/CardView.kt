@@ -1,4 +1,4 @@
-package com.example.retrofit.presentation.temp_screen_create
+package com.example.retrofit.presentation.movie.items
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -16,13 +16,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import coil.compose.rememberAsyncImagePainter
+import com.example.retrofit.core.Constants
+import com.example.retrofit_api.movie_app.movie_model.MovieResult
 
 @Composable
-fun Card(
-    painter: Painter
+fun ItemsScreen(
+    itemIndex: Int,
+    list: List<MovieResult>,
+    navController: NavController
 ) {
     Card(
         modifier = Modifier
@@ -31,7 +36,10 @@ fun Card(
             .height(230.dp),
         elevation = CardDefaults.cardElevation(
             defaultElevation = 10.dp
-        )
+        ),
+        onClick = {
+            navController.navigate(route = "detail_item_screen/" + list[itemIndex].id)
+        }
     ) {
         Box(
             modifier = Modifier
@@ -45,6 +53,9 @@ fun Card(
                         .fillMaxWidth()
                         .fillMaxHeight()
                 ) {
+                    val painter = rememberAsyncImagePainter(
+                        model = "${Constants.POSTER_URL}${list[itemIndex].poster_path}"
+                    )
                     Image(
                         modifier = Modifier
                             .fillMaxWidth()

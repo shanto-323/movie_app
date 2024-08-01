@@ -1,4 +1,4 @@
-package com.example.retrofit.presentation.movie_screen.items
+package com.example.retrofit.presentation.movie.items
 
 import com.example.retrofit.core.Constants
 import com.example.retrofit.domain.model.tv_model.TvResult

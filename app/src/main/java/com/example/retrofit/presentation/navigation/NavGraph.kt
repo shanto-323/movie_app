@@ -7,8 +7,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.example.retrofit.core.Constants
-import com.example.retrofit.presentation.movie_screen.Screen
-import com.example.retrofit.presentation.movie_screen.items.helper_screen.movie_detail.DetailItemScreen
+import com.example.retrofit.presentation.movie.Screen
+import com.example.retrofit.presentation.detail.DetailItemScreen
 
 @Composable
 fun NavGraph(

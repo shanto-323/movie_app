@@ -1,4 +1,4 @@
-package com.example.retrofit.presentation.movie_screen.items
+package com.example.retrofit.presentation.movie.items
 
 sealed class Event {
     data object MovieButtonClicked : Event()
