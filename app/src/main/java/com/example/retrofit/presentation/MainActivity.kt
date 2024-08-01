@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.navigation.compose.rememberNavController
+import com.example.retrofit.presentation.detail.items.BottomSheet
 import com.example.retrofit.presentation.navigation.NavGraph
 import com.example.retrofit.presentation.ui.theme.RetrofitTheme
 import dagger.hilt.android.AndroidEntryPoint

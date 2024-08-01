@@ -17,7 +17,6 @@ class MovieDetailViewModel @Inject constructor(
 ) : ViewModel() {
     var state by mutableStateOf(State())
         private set
-
     fun getMovie(id : Int){
         viewModelScope.launch {
             val movie = repository.getMovie(id).body()

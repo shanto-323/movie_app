@@ -2,7 +2,7 @@ package com.example.retrofit_api.movie_app.movie_model
 
 import androidx.room.PrimaryKey
 
-data class MovieResult(
+data class Result(
     val adult: Boolean,
     val backdrop_path: String,
     val genre_ids: List<Int>,

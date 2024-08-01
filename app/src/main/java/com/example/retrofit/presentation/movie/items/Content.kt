@@ -13,11 +13,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.retrofit_api.movie_app.movie_model.MovieResult
+import com.example.retrofit_api.movie_app.movie_model.Result
 
 @Composable
 fun Content(
-    list: List<MovieResult>,
+    list: List<Result>,
     navController: NavHostController,
     paddingValues: PaddingValues,
     background: Color,

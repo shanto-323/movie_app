@@ -14,142 +14,57 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.BottomSheetScaffold
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.rememberBottomSheetScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberAsyncImagePainter
+import com.example.retrofit.R
 import com.example.retrofit.core.Constants
 import com.example.retrofit.presentation.components.SimpleText
+import com.example.retrofit.presentation.detail.items.Content
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailItemScreen(
     viewModel: MovieDetailViewModel = hiltViewModel(),
     itemIndex: Int
 ) {
-    val scrollState = rememberScrollState()
+    val sheetState = rememberBottomSheetScaffoldState()
     viewModel.getMovie(itemIndex)
     val movie = viewModel.state.movieResult
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.Black)
-            .padding(20.dp)
-            .verticalScroll(scrollState)
-    ) {
-        Spacer(modifier = Modifier.padding(10.dp))
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(300.dp)
-        ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                contentAlignment = Alignment.Center
-            ) {
-                val painter = rememberAsyncImagePainter(
-                    model = "${Constants.POSTER_URL}${movie?.poster_path}"
-                )
-                Image(
-                    modifier = Modifier
-                        .fillMaxWidth(0.5f)
-                        .fillMaxHeight()
-                        .padding(5.dp, 20.dp)
-                        .clip(RoundedCornerShape(10.dp)),
-                    contentScale = ContentScale.FillBounds,
-                    painter = painter,
-                    contentDescription = null
-                )
-            }
-        }
-        Box(
-            modifier = Modifier
-                .fillMaxWidth(),
-            contentAlignment = Alignment.Center
-        ) {
+
+    BottomSheetScaffold(
+        scaffoldState = sheetState,
+        sheetContent = {
             Column(
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                if (movie != null) {
-                    SimpleText(
-                        movie.title,
-                        FontWeight.Bold,
-                        Color.White,
-                        20
-                    )
-                }
-                Spacer(modifier = Modifier.padding(10.dp))
-                Column(
-                    horizontalAlignment = Alignment.Start
-                ){
-                    if (movie != null) {
-                        SimpleText(
-                            "Release Date : ${movie.release_date}",
-                            FontWeight.Medium,
-                            Color.White,
-                            12
-                        )
-                        SimpleText(
-                            "Adult : ${movie.adult}",
-                            FontWeight.Medium,
-                            Color.White,
-                            12
-                        )
-
-                        SimpleText(
-                            "Language : ${movie.original_language}",
-                            FontWeight.Medium,
-                            Color.White,
-                            12
-                        )
-                        SimpleText(
-                            "Rating : ${movie.vote_average}",
-                            FontWeight.Medium,
-                            Color.White,
-                            12
-                        )
-                        SimpleText(
-                            "Vote Count : ${movie.vote_count}",
-                            FontWeight.Medium,
-                            Color.White,
-                            12
-                        )
-                    }
-                }
-            }
-
-        }
-
-        Spacer(modifier = Modifier.padding(20.dp))
-        Column(
-            horizontalAlignment = Alignment.Start
-        ) {
-            val painter = rememberAsyncImagePainter(
-                model = "${Constants.POSTER_URL}${movie?.backdrop_path}"
-            )
-            Image(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(400.dp)
-                    .padding(5.dp, 20.dp)
-                    .clip(RoundedCornerShape(10.dp)),
-                contentScale = ContentScale.FillBounds,
-                painter = painter,
-                contentDescription = null
-            )
-            SimpleText(
-                "Overview : ${movie?.overview}",
-                FontWeight.Medium,
-                Color.White,
-                12
-            )
-        }
-        Spacer(modifier = Modifier.padding(15.dp))
+                    .fillMaxHeight(0.5f)
+                    .padding(10.dp)
+            ) {
+                SimpleText(
+                    "Movie Details",
+                    FontWeight.Bold,
+                    Color.Black,
+                    32
+                )
+                Spacer(modifier = Modifier.padding(10.dp))
+                Image(painter = painterResource(id = R.drawable.poster), contentDescription = "")
+            }
+        },
+        sheetPeekHeight = 100.dp,
+        sheetContainerColor = Color.Green
+    ) {
+        Content(movie)
     }
 }

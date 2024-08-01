@@ -57,7 +57,7 @@ class ScreenViewModel @Inject constructor(
     fun fetchData() {
         viewModelScope.launch {
             val movieResults =
-                repository.getMovieList(state.movieType, state.page).body()?.movieResults
+                repository.getMovieList(state.movieType, state.page).body()?.results
             if (movieResults != null) {
                 state = state.copy(dataItems = movieResults)
             } else {
