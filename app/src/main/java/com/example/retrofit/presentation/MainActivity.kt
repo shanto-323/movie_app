@@ -5,7 +5,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.navigation.compose.rememberNavController
 import com.example.retrofit.presentation.navigation.NavGraph
-import com.example.retrofit.presentation.temp_screen_create.MainScreen
 import com.example.retrofit.presentation.ui.theme.RetrofitTheme
 import dagger.hilt.android.AndroidEntryPoint
 
