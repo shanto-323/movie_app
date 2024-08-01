@@ -54,7 +54,6 @@ fun TopBar(background: Color) {
             horizontalArrangement = Arrangement.SpaceAround
         ) {
             IconButton(onClick = {
-
                 println("Clicked")
             }) {
                 Icon(painter = painterResource(id = R.drawable.baseline_downloading_24), contentDescription = null)
