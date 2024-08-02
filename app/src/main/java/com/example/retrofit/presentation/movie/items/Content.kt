@@ -36,7 +36,7 @@ fun Content(
                 .padding(20.dp, 10.dp)
         ) {
             items(list.size) {
-                ItemsScreen(it, list,navController)
+                CardView(it, list,navController)
             }
         }
     }

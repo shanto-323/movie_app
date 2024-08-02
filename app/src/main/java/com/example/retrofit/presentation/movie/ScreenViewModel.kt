@@ -20,6 +20,24 @@ class ScreenViewModel @Inject constructor(
     var state by mutableStateOf(State())
         private set
 
+    init {
+        println("Working")
+        try {
+            viewModelScope.launch {
+                val movieResults =
+                    repository.movieDiscover().body()?.results
+                if (movieResults != null) {
+                    state = state.copy(dataItems = movieResults)
+                } else {
+                    println { "Movie results is null" }
+                }
+            }
+        } catch (e: Exception) {
+            println("Error")
+        }
+
+    }
+
     fun onEvent(event: Event) {
         when (event) {
             Event.MovieButtonClicked -> {
@@ -43,6 +61,9 @@ class ScreenViewModel @Inject constructor(
                 fetchData()
             }
 
+
+
+
             Event.NextButtonClicked -> {
                 state = state.copy(page = state.page + 1)
                 fetchData()
@@ -54,7 +75,10 @@ class ScreenViewModel @Inject constructor(
         }
     }
 
-    fun fetchData() {
+
+
+    private fun fetchData() {
+        println("Working Here")
         viewModelScope.launch {
             val movieResults =
                 repository.getMovieList(state.movieType, state.page).body()?.results

@@ -13,6 +13,10 @@ class Repository @Inject constructor(
         return apiService.getMovieList(type,page)
     }
 
+    suspend fun movieDiscover(): Response<MovieDto> {
+        return apiService.discoverMovie()
+    }
+
     suspend fun getMovie(id: Int): Response<Result> {
         return apiService.getMovie(id)
     }

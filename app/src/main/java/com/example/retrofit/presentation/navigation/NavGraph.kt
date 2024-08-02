@@ -9,6 +9,7 @@ import androidx.navigation.navArgument
 import com.example.retrofit.core.Constants
 import com.example.retrofit.presentation.movie.Screen
 import com.example.retrofit.presentation.detail.DetailItemScreen
+import com.example.retrofit.presentation.detail.items.WebMovie
 
 @Composable
 fun NavGraph(
@@ -32,7 +33,20 @@ fun NavGraph(
         ) {
             val itemIndex = it.arguments?.getInt(Constants.ITEM_INDEX)
             DetailItemScreen(
-                itemIndex = itemIndex!!
+                itemIndex = itemIndex!!,
+                navController = navController
+            )
+        }
+
+        composable(
+            route = Constants.VIDEO_SCREEN,
+            arguments = listOf(navArgument(Constants.MOVIE_ID) {
+                type = NavType.IntType
+            })
+        ) {
+            val movieId = it.arguments?.getInt(Constants.MOVIE_ID)
+            WebMovie(
+                id = movieId!!
             )
         }
     }

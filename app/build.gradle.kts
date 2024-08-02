@@ -109,6 +109,10 @@ dependencies {
     implementation ("androidx.compose.material:material:1.4.3")
 
     implementation ("androidx.palette:palette-ktx:1.0.0")
+    
+    implementation ("androidx.compose.ui:ui:1.0.5")
+    implementation ("androidx.compose.material:material:1.0.5")
+    implementation ("com.google.accompanist:accompanist-webview:0.24.13-rc")
 
 
 }

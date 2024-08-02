@@ -22,7 +22,7 @@ fun Screen(
     viewModel: ScreenViewModel = hiltViewModel(),
     navController: NavHostController
 ) {
-    viewModel.fetchData()
+//    viewModel.fetchData()
     val list = viewModel.state.dataItems
     val background = colorResource(id = R.color.offBlack)
     val lazyGridState = rememberLazyGridState()

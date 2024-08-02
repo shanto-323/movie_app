@@ -14,6 +14,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.Button
+import androidx.compose.material.Text
 import androidx.compose.material3.BottomSheetScaffold
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.rememberBottomSheetScaffoldState
@@ -27,6 +29,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
 import coil.compose.rememberAsyncImagePainter
 import com.example.retrofit.R
 import com.example.retrofit.core.Constants
@@ -37,7 +40,8 @@ import com.example.retrofit.presentation.detail.items.Content
 @Composable
 fun DetailItemScreen(
     viewModel: MovieDetailViewModel = hiltViewModel(),
-    itemIndex: Int
+    itemIndex: Int,
+    navController : NavHostController
 ) {
     val sheetState = rememberBottomSheetScaffoldState()
     viewModel.getMovie(itemIndex)
@@ -59,7 +63,16 @@ fun DetailItemScreen(
                     32
                 )
                 Spacer(modifier = Modifier.padding(10.dp))
-                Image(painter = painterResource(id = R.drawable.poster), contentDescription = "")
+                Button(onClick = {
+                    navController.navigate(route = "video_screen/" + movie?.id)
+                }) {
+                    SimpleText(
+                        "Watch",
+                        FontWeight.Bold,
+                        Color.Black,
+                        32
+                    )
+                }
             }
         },
         sheetPeekHeight = 100.dp,

@@ -24,7 +24,7 @@ import com.example.retrofit.core.Constants
 import com.example.retrofit_api.movie_app.movie_model.Result
 
 @Composable
-fun ItemsScreen(
+fun CardView(
     itemIndex: Int,
     list: List<Result>,
     navController: NavController
