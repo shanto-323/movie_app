@@ -10,6 +10,7 @@ import com.example.retrofit.core.Constants
 import com.example.retrofit.presentation.movie.Screen
 import com.example.retrofit.presentation.detail.DetailItemScreen
 import com.example.retrofit.presentation.detail.items.WebMovie
+import com.example.retrofit.presentation.search.Search
 
 @Composable
 fun NavGraph(
@@ -21,6 +22,11 @@ fun NavGraph(
     ){
         composable(Constants.SCREEN) {
             Screen(
+                navController = navController
+            )
+        }
+        composable(Constants.SEARCH_SCREEN) {
+            Search(
                 navController = navController
             )
         }

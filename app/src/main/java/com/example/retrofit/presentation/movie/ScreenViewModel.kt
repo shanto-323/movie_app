@@ -64,6 +64,7 @@ class ScreenViewModel @Inject constructor(
 
 
 
+
             Event.NextButtonClicked -> {
                 state = state.copy(page = state.page + 1)
                 fetchData()

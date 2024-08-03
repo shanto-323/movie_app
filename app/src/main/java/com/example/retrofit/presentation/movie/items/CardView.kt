@@ -27,7 +27,6 @@ import com.example.retrofit_api.movie_app.movie_model.Result
 fun CardView(
     itemIndex: Int,
     list: List<Result>,
-    navController: NavController
 ) {
     Card(
         modifier = Modifier
@@ -36,10 +35,7 @@ fun CardView(
             .height(230.dp),
         elevation = CardDefaults.cardElevation(
             defaultElevation = 10.dp
-        ),
-        onClick = {
-            navController.navigate(route = "detail_item_screen/" + list[itemIndex].id)
-        }
+        )
     ) {
         Box(
             modifier = Modifier

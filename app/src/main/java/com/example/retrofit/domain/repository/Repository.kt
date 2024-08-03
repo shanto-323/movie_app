@@ -12,6 +12,9 @@ class Repository @Inject constructor(
     suspend fun getMovieList(type: String,page: Int): Response<MovieDto> {
         return apiService.getMovieList(type,page)
     }
+    suspend fun getSearchedList(query: String): Response<MovieDto> {
+        return apiService.searchMovie(query)
+    }
 
     suspend fun movieDiscover(): Response<MovieDto> {
         return apiService.discoverMovie()

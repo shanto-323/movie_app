@@ -22,7 +22,6 @@ fun Screen(
     viewModel: ScreenViewModel = hiltViewModel(),
     navController: NavHostController
 ) {
-//    viewModel.fetchData()
     val list = viewModel.state.dataItems
     val background = colorResource(id = R.color.offBlack)
     val lazyGridState = rememberLazyGridState()
@@ -36,15 +35,13 @@ fun Screen(
     }
 
     Scaffold(
-        modifier = Modifier
-            .fillMaxSize(),
         topBar = {
-            TopBar(background)
+            TopBar(background,viewModel)
         }, content = { paddingValues ->
             Content(list,navController,paddingValues,background,lazyGridState)
         },
         bottomBar = {
-            BottomAppBar()
+            BottomAppBar(navController)
         },
         floatingActionButton = {
             FloatingAction(reachEnd, viewModel)

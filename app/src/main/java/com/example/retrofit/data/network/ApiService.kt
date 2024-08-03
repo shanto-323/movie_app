@@ -22,6 +22,14 @@ interface ApiService {
         @Query("api_key") apiKey: String = Constants.API_KEY
     ): Response<MovieDto>
 
+
+    @GET("search/movie")
+    suspend fun searchMovie(
+        @Query("query") query:String,
+        @Query("api_key") apiKey: String = Constants.API_KEY
+    ): Response<MovieDto>
+
+
     @GET("movie/{id}")
     suspend fun getMovie(
         @Path("id") id: Int,
