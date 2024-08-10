@@ -8,5 +8,8 @@ data class State(
     val movieResult: Result? = null,
     val id : Int = 0,
     val movieType: String = Constants.MOVIE_TYPE_POPULAR,
-    val page : Int = 1
+    val page : Int = 1,
+    val isLoading: Boolean = false,
+    val error: String = "",
+    val endReached: Boolean = false,
 )
