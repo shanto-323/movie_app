@@ -6,6 +6,4 @@ sealed class Event {
     data object PopularButtonClicked : Event()
     data object UpcomingButtonClicked : Event()
     data object TopRatedButtonClicked : Event()
-    data object NextButtonClicked : Event()
-    data object PrevButtonClicked : Event()
 }

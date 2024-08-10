@@ -21,8 +21,11 @@ class ScreenViewModel @Inject constructor(
     var state by mutableStateOf(State())
         private set
 
+    init {
+        loadNext()
+    }
 
-    private val pagination = PaginationFactory(
+    private inline fun pagination() = PaginationFactory(
         initialKey = state.page,
         onLoadUpdated = {
             state = state.copy(
@@ -42,83 +45,58 @@ class ScreenViewModel @Inject constructor(
             state = state.copy(
                 dataItems = state.dataItems + items.results,
                 page =  newPage,
-                endReached = state.page == 10
+                endReached = state.page == items.total_pages
             )
         }
     )
 
-    init {
-        loadNext()
-    }
 
     fun loadNext() {
         viewModelScope.launch {
-            pagination?.newPage()
+            pagination()?.newPage()
+        }
+    }
+    private fun reset() {
+        viewModelScope.launch {
+            pagination().reset()
         }
     }
 
-//    init {
-//        println("Working")
-//        try {
-//            viewModelScope.launch {
-//                val movieResults =
-//                    repository.movieDiscover().body()?.results
-//                if (movieResults != null) {
-//                    state = state.copy(dataItems = movieResults)
-//                } else {
-//                    println { "Movie results is null" }
-//                }
-//            }
-//        } catch (e: Exception) {
-//            println("Error")
-//        }
-//    }
+
+    private fun changeMovieType(newType: String) {
+        state = state.copy(
+            movieType = newType,
+            page = 1,
+            dataItems = emptyList(),
+            endReached = false
+        )
+        reset()
+        loadNext()
+    }
 
     fun onEvent(event: Event) {
         when (event) {
             Event.MovieButtonClicked -> {
                 state = state.copy(movieType = Constants.MOVIE_TYPE_POPULAR)
+                changeMovieType(Constants.MOVIE_TYPE_POPULAR)
             }
 
             Event.PopularButtonClicked -> {
                 state = state.copy(movieType = Constants.MOVIE_TYPE_POPULAR)
+                changeMovieType(Constants.MOVIE_TYPE_POPULAR)
             }
 
             Event.ShowsButtonClicked -> TODO()
             Event.TopRatedButtonClicked -> {
                 state = state.copy(movieType = Constants.MOVIE_TYPE_TOP_RATED)
+                changeMovieType(Constants.MOVIE_TYPE_TOP_RATED)
             }
 
             Event.UpcomingButtonClicked -> {
                 state = state.copy(movieType = Constants.MOVIE_TYPE_UPCOMING)
+                changeMovieType(Constants.MOVIE_TYPE_UPCOMING)
             }
 
-
-
-
-
-            Event.NextButtonClicked -> {
-//                state = state.copy(page = state.page + 1)
-            }
-
-            Event.PrevButtonClicked -> {
-
-            }
         }
     }
-
-
-
-//    private fun fetchData() {
-//        println("Working Here")
-//        viewModelScope.launch {
-//            val movieResults =
-//                repository.getMovieList(state.movieType, state.page).body()?.results
-//            if (movieResults != null) {
-//                state = state.copy(dataItems = movieResults)
-//            } else {
-//                println { "Movie results is null" }
-//            }
-//        }
-//    }
 }

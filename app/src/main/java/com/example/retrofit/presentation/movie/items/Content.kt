@@ -34,41 +34,30 @@ fun Content(
             .padding(paddingValues)
             .background(background),
     ) {
-//        LazyVerticalGrid(
-//            columns = GridCells.Fixed(2),
-////            state = lazyGridState,
-//            modifier = Modifier
-//                .fillMaxSize()
-//                .padding(20.dp, 10.dp)
-//        ) {
-//            items(list.size) {
-//                Box(
-//                    modifier = Modifier
-//                        .fillMaxWidth()
-//                        .clickable (
-//                            onClick = {
-//                                println("inSide")
-//                                navController.navigate(route = "detail_item_screen/" + list[it].id)
-//                            }
-//                        )
-//                ) {
-//                    CardView(it, list)
-//                }
-//            }
-//        }
-
-
-        LazyColumn{
-            items(list.size){
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(2),
+//            state = lazyGridState,
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(20.dp, 10.dp)
+        ) {
+            items(list.size) {
                 if(it >= list.size - 1 && !viewModel.state.endReached && !viewModel.state.isLoading){
                     viewModel.loadNext()
                 }
-                Text(
-                    text = viewModel.state.dataItems[it].title,
-                )
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable (
+                            onClick = {
+                                println("inSide")
+                                navController.navigate(route = "detail_item_screen/" + list[it].id)
+                            }
+                        )
+                ) {
+                    CardView(it, list)
+                }
             }
         }
-
-
     }
 }
