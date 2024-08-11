@@ -33,7 +33,7 @@ class SlideViewModel @Inject constructor(
                 }
             }
         } catch (e: Exception) {
-            println(e)
+            println("this is problem $e")
         }
     }
 }
