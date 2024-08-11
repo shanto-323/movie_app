@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.navigation.compose.rememberNavController
 import com.example.retrofit.presentation.navigation.NavGraph
+import com.example.retrofit.presentation.slide.Slide
 import com.example.retrofit.presentation.ui.theme.RetrofitTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -16,7 +17,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             RetrofitTheme {
                 val navController = rememberNavController()
-                NavGraph(navController = navController)
+//                NavGraph(navController = navController)
+                Slide()
             }
         }
     }

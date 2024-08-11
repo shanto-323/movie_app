@@ -11,14 +11,18 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.retrofit.presentation.movie.ScreenViewModel
 import com.example.retrofit_api.movie_app.movie_model.Result
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
 
 @Composable
 fun Content(
@@ -27,7 +31,6 @@ fun Content(
     paddingValues: PaddingValues,
     background: Color,
     viewModel: ScreenViewModel,
-//    lazyGridState: LazyGridState
 ) {
     Column(
         modifier = Modifier
@@ -36,7 +39,6 @@ fun Content(
     ) {
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),
-//            state = lazyGridState,
             modifier = Modifier
                 .fillMaxSize()
                 .padding(20.dp, 10.dp)
@@ -48,7 +50,7 @@ fun Content(
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .clickable (
+                        .clickable(
                             onClick = {
                                 println("inSide")
                                 navController.navigate(route = "detail_item_screen/" + list[it].id)

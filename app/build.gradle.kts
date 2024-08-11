@@ -10,6 +10,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
+
         applicationId = "com.example.retrofit"
         minSdk = 24
         targetSdk = 34
@@ -40,6 +41,7 @@ android {
     }
     buildFeatures {
         compose = true
+        viewBinding = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -111,8 +113,10 @@ dependencies {
     implementation ("androidx.palette:palette-ktx:1.0.0")
     
     implementation ("androidx.compose.ui:ui:1.0.5")
-    implementation ("androidx.compose.material:material:1.0.5")
+    implementation ("androidx.compose.material:material:1.6.8")
     implementation ("com.google.accompanist:accompanist-webview:0.24.13-rc")
+
+    implementation ("androidx.compose.foundation:foundation:1.4.0")
 
 
 }

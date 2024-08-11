@@ -21,7 +21,7 @@ fun FloatingAction(
     if (reachEnd) {
         IconButton(
             onClick = {
-                viewModel.onEvent(event = Event.NextButtonClicked)
+//                viewModel.onEvent(event)
             },
             modifier = Modifier
                 .clip(RoundedCornerShape(20.dp))
