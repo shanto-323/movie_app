@@ -19,12 +19,16 @@ class SlideViewModel @Inject constructor(
 
     var state by mutableStateOf(State())
         private set
-
-    init {
+//
+//    init {
+//        fetchData()
+//    }
+    fun fetchData(){
         try {
             viewModelScope.launch {
-                val response = repository.getMovieList(Constants.MOVIE_TYPE_UPCOMING, 1)
+                val response = repository.getMovieList(Constants.MOVIE_TYPE_POPULAR, 1)
                 if (response != null) {
+                    println("Working")
                     state = state.copy(
                         image = response.body()!!.results
                     )
