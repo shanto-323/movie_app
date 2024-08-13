@@ -1,4 +1,4 @@
-package com.example.retrofit.core
+package com.example.retrofit.utils
 
 sealed class Resource<T>(
     val data: T? = null,

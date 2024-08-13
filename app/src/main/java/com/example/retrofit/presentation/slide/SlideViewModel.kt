@@ -5,9 +5,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.retrofit.core.Constants
+import com.example.retrofit.utils.Constants
 import com.example.retrofit.domain.repository.Repository
-import com.example.retrofit_api.movie_app.movie_model.Result
+import com.example.retrofit.presentation.slide.items.State
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -19,11 +19,11 @@ class SlideViewModel @Inject constructor(
 
     var state by mutableStateOf(State())
         private set
-//
-//    init {
-//        fetchData()
-//    }
-    fun fetchData(){
+
+    init {
+        fetchData()
+    }
+    private fun fetchData(){
         try {
             viewModelScope.launch {
                 val response = repository.getMovieList(Constants.MOVIE_TYPE_POPULAR, 1)
@@ -41,8 +41,3 @@ class SlideViewModel @Inject constructor(
         }
     }
 }
-
-
-data class State(
-    val image: List<Result> = emptyList()
-)

@@ -3,10 +3,9 @@ package com.example.retrofit.presentation.detail.items
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.example.retrofit.core.Constants
+import com.example.retrofit.utils.Constants
 import com.google.accompanist.web.WebView
 import com.google.accompanist.web.rememberWebViewState
 

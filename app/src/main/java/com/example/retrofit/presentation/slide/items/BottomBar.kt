@@ -1,4 +1,4 @@
-package com.example.retrofit.presentation.movie.items
+package com.example.retrofit.presentation.slide.items
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -15,8 +15,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.retrofit.R
-import com.example.retrofit.core.Constants
-import com.google.android.material.bottomappbar.BottomAppBar
+import com.example.retrofit.utils.Constants
 
 @Composable
 fun BottomAppBar(
@@ -30,18 +29,6 @@ fun BottomAppBar(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceEvenly
     ) {
-        IconButton(
-            onClick = {
-
-            }
-        ) {
-            Icon(
-                painter = painterResource(id = R.drawable.baseline_downloading_24),
-                contentDescription = null,
-                tint = Color.White
-            )
-        }
-
         IconButton(
             onClick = {
                 println("Working")

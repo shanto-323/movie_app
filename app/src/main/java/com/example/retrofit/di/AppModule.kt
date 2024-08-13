@@ -1,6 +1,6 @@
 package com.example.retrofit.di
 
-import com.example.retrofit.core.Constants
+import com.example.retrofit.utils.Constants
 import com.example.retrofit.data.network.ApiService
 import dagger.Module
 import dagger.Provides

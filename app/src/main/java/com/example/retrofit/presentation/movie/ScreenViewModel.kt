@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.retrofit.core.Constants
+import com.example.retrofit.utils.Constants
 import com.example.retrofit.data.pagination.PaginationFactory
 import com.example.retrofit.domain.repository.Repository
 import com.example.retrofit.presentation.movie.items.Event

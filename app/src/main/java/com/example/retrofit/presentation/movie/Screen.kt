@@ -6,7 +6,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.example.retrofit.R
-import com.example.retrofit.presentation.movie.items.BottomAppBar
+import com.example.retrofit.presentation.slide.items.BottomAppBar
 import com.example.retrofit.presentation.movie.items.Content
 import com.example.retrofit.presentation.movie.items.TopBar
 

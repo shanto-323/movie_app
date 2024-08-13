@@ -1,4 +1,4 @@
-package com.example.retrofit.core
+package com.example.retrofit.utils
 
 object Constants {
 
@@ -20,6 +20,7 @@ object Constants {
     //SCREENS
     const val SCREEN = "screen"
     const val SEARCH_SCREEN = "search_screen"
+    const val MAIN_SCREEN = "main_screen"
     const val DETAIL_ITEM_SCREEN = "detail_item_screen/{$ITEM_INDEX}"
     const val VIDEO_SCREEN = "video_screen/{$MOVIE_ID}"
 

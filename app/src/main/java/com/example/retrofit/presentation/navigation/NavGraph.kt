@@ -6,11 +6,13 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.example.retrofit.core.Constants
+import com.example.retrofit.utils.Constants
 import com.example.retrofit.presentation.movie.Screen
 import com.example.retrofit.presentation.detail.DetailItemScreen
 import com.example.retrofit.presentation.detail.items.WebMovie
 import com.example.retrofit.presentation.search.Search
+import com.example.retrofit.presentation.slide.Slide
+import com.example.retrofit.presentation.slide.items.Content
 
 @Composable
 fun NavGraph(
@@ -18,10 +20,15 @@ fun NavGraph(
 ) {
     NavHost(
         navController = navController,
-        startDestination = Constants.SCREEN
+        startDestination = Constants.MAIN_SCREEN
     ){
         composable(Constants.SCREEN) {
             Screen(
+                navController = navController
+            )
+        }
+        composable(Constants.SCREEN) {
+            Slide(
                 navController = navController
             )
         }

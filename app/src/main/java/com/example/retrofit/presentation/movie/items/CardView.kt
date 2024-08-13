@@ -18,9 +18,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
-import com.example.retrofit.core.Constants
+import com.example.retrofit.utils.Constants
 import com.example.retrofit_api.movie_app.movie_model.Result
 
 @Composable

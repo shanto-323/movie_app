@@ -1,6 +1,6 @@
 package com.example.retrofit.data.network
 
-import com.example.retrofit.core.Constants
+import com.example.retrofit.utils.Constants
 import com.example.retrofit.domain.model.movie_model.MovieDto
 import com.example.retrofit_api.movie_app.movie_model.Result
 import retrofit2.Response

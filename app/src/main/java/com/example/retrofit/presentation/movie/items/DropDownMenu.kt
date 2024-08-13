@@ -18,7 +18,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.example.retrofit.core.Constants
 import com.example.retrofit.presentation.components.SimpleText
 import com.example.retrofit.presentation.movie.ScreenViewModel
 
