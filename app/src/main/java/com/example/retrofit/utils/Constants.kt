@@ -4,7 +4,6 @@ object Constants {
 
 
     const val ITEM_INDEX = "itemIndex"
-    const val MOVIE_ID = "movieId"
 
     //API ITEMS
     const val BASE_URL = "https://api.themoviedb.org/3/"
@@ -22,8 +21,4 @@ object Constants {
     const val SEARCH_SCREEN = "search_screen"
     const val MAIN_SCREEN = "main_screen"
     const val DETAIL_ITEM_SCREEN = "detail_item_screen/{$ITEM_INDEX}"
-    const val VIDEO_SCREEN = "video_screen/{$MOVIE_ID}"
-
-    //VidSrc url
-    const val VIDEO_LINK = "https://vidcloud1.com/streaming.php?id="
 }

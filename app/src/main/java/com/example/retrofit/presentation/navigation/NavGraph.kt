@@ -7,11 +7,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.example.retrofit.utils.Constants
-import com.example.retrofit.presentation.movie.Screen
-import com.example.retrofit.presentation.detail.DetailItemScreen
-import com.example.retrofit.presentation.detail.items.WebMovie
-import com.example.retrofit.presentation.search.Search
-import com.example.retrofit.presentation.slide.Slide
+import com.example.retrofit.presentation.movie_list_screen.Screen
+import com.example.retrofit.presentation.detail_screen.DetailItemScreen
+import com.example.retrofit.presentation.search_screen.Search
+import com.example.retrofit.presentation.main_screen.Slide
 
 @Composable
 fun NavGraph(
@@ -47,18 +46,6 @@ fun NavGraph(
             DetailItemScreen(
                 movieId = itemIndex!!,
                 navController = navController
-            )
-        }
-
-        composable(
-            route = Constants.VIDEO_SCREEN,
-            arguments = listOf(navArgument(Constants.MOVIE_ID) {
-                type = NavType.IntType
-            })
-        ) {
-            val movieId = it.arguments?.getInt(Constants.MOVIE_ID)
-            WebMovie(
-                id = movieId!!
             )
         }
     }
