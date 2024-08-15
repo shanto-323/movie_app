@@ -12,7 +12,6 @@ import com.example.retrofit.presentation.detail.DetailItemScreen
 import com.example.retrofit.presentation.detail.items.WebMovie
 import com.example.retrofit.presentation.search.Search
 import com.example.retrofit.presentation.slide.Slide
-import com.example.retrofit.presentation.slide.items.Content
 
 @Composable
 fun NavGraph(
@@ -27,7 +26,7 @@ fun NavGraph(
                 navController = navController
             )
         }
-        composable(Constants.SCREEN) {
+        composable(Constants.MAIN_SCREEN) {
             Slide(
                 navController = navController
             )
@@ -46,7 +45,7 @@ fun NavGraph(
         ) {
             val itemIndex = it.arguments?.getInt(Constants.ITEM_INDEX)
             DetailItemScreen(
-                itemIndex = itemIndex!!,
+                movieId = itemIndex!!,
                 navController = navController
             )
         }

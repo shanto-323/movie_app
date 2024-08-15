@@ -6,7 +6,8 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.retrofit.domain.repository.Repository
-import com.example.retrofit.presentation.movie.items.State
+import com.example.retrofit.presentation.search.items.State
+import com.example.retrofit.presentation.search.items.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -17,6 +18,19 @@ class SearchViewModel @Inject constructor(
 ) : ViewModel() {
     var state by mutableStateOf(State())
         private set
+
+    fun onEvent(event: Event) {
+        when (event) {
+            is Event.ListChange -> {
+                state = state.copy(dataItems = event.list)
+            }
+
+            is Event.NameChange -> {
+                state = state.copy(name = event.name)
+                getMovie(state.name)
+            }
+        }
+    }
 
     fun getMovie(query:String){
         try {

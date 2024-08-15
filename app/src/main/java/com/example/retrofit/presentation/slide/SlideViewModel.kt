@@ -26,7 +26,7 @@ class SlideViewModel @Inject constructor(
     private fun fetchData(){
         try {
             viewModelScope.launch {
-                val response = repository.getMovieList(Constants.MOVIE_TYPE_POPULAR, 1)
+                val response = repository.getTrendingList()
                 if (response != null) {
                     println("Working")
                     state = state.copy(

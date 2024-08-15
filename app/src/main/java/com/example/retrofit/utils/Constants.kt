@@ -25,5 +25,5 @@ object Constants {
     const val VIDEO_SCREEN = "video_screen/{$MOVIE_ID}"
 
     //VidSrc url
-    const val VIDEO_LINK = "https://vidsrc.xyz/embed/movie/"
+    const val VIDEO_LINK = "https://vidcloud1.com/streaming.php?id="
 }

@@ -2,6 +2,7 @@ package com.example.retrofit.presentation.slide.items
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -20,12 +21,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import coil.compose.rememberAsyncImagePainter
 import com.example.retrofit.utils.Constants
 import com.example.retrofit_api.movie_app.movie_model.Result
 
 @Composable
-fun ItemPosition(state: List<Result>) {
+fun ItemPosition(state: List<Result>, navController: NavHostController) {
     LazyRow(
         modifier = Modifier
             .fillMaxWidth()
@@ -38,7 +40,12 @@ fun ItemPosition(state: List<Result>) {
                     modifier = Modifier
                         .width(150.dp)
                         .height(230.dp)
-                        .padding(2.dp),
+                        .padding(2.dp)
+                        .clickable(
+                            onClick = {
+                                navController.navigate(route = "detail_item_screen/" + state[item].id)
+                            }
+                        ),
                     elevation = CardDefaults.cardElevation(
                         defaultElevation = 10.dp
                     )

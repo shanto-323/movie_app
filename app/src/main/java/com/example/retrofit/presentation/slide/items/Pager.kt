@@ -153,7 +153,7 @@ fun Pager(state: List<Result>) {
                                     color = Color.White
                                 )
                                 Icon(painter = painterResource(
-                                    id = R.drawable.baseline_bookmark_add_24)
+                                    id = R.drawable.baseline_play_arrow_24)
                                     , contentDescription = null,
                                     tint = Color.White
                                 )

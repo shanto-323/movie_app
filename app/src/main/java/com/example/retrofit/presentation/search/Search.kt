@@ -33,6 +33,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.example.retrofit.presentation.movie.items.CardView
+import com.example.retrofit.presentation.search.items.Event
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -55,7 +56,7 @@ fun Search(
         Box(
             modifier = Modifier
                 .fillMaxWidth(if (isActive) 1f else 0.9f)
-                .fillMaxHeight(if (isActive) 0.5f else 0.1f)
+                .fillMaxHeight(if (isActive) 0.13f else 0.1f)
                 .clip(RoundedCornerShape(30.dp))
                 .padding(10.dp),
 
@@ -67,7 +68,10 @@ fun Search(
                     .clip(RoundedCornerShape(30.dp)),
 
                 query = text,
-                onQueryChange = { text = it },
+                onQueryChange = {
+                    text=it
+                    viewModel.onEvent(Event.NameChange(text))
+                },
                 onSearch = {
                     isActive = false
                     viewModel.getMovie(text)
@@ -95,10 +99,11 @@ fun Search(
         Box(
             modifier = Modifier
                 .fillMaxSize()
-        ){
-            if (list.isEmpty()){
+                .padding(10.dp)
+        ) {
+            if (list.isEmpty()) {
                 Text(text = "Not Movie Found As Name $text")
-            }else{
+            } else {
                 LazyVerticalGrid(
                     columns = GridCells.Fixed(2),
                     state = lazyGridState,

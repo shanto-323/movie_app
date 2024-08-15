@@ -21,7 +21,7 @@ fun Screen(
 
     Scaffold(
         topBar = {
-            TopBar(background,viewModel)
+            TopBar(background,viewModel,navController)
         }, content = { paddingValues ->
             Content(list,navController,paddingValues,background,viewModel)
         },
