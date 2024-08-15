@@ -45,7 +45,7 @@ fun NavGraph(
         ) {
             val itemIndex = it.arguments?.getInt(Constants.ITEM_INDEX)
             DetailItemScreen(
-                movieId = itemIndex!!,
+                itemIndex,
                 navController = navController
             )
         }
