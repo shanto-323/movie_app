@@ -5,7 +5,7 @@ MOFLIX is a multi-page Android app designed to showcase detailed information abo
 
 
 *Main Page
-<img src="https://github.com/user-attachments/assets/407e8ff4-84bb-48da-857b-549a5900ac79" alt="list_page" width="300" height="200"/>
+<img src="https://github.com/user-attachments/assets/407e8ff4-84bb-48da-857b-549a5900ac79" alt="list_page" width="300" height="800"/>
 
 *List Page With Types
 ![list_page](https://github.com/user-attachments/assets/40c89ef8-8090-48c7-9e7d-2ecf9a8b2183)  ![types_of_list](https://github.com/user-attachments/assets/20bd29e3-f8ab-48bb-99a7-26d9ebf7019c)
