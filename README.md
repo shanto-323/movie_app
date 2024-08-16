@@ -1,5 +1,4 @@
 **<h1>App Description:</h1>**  <br>
-
 <h5>MOFLIX is a multi-page Android app designed to showcase detailed information about movies. Powered by the TMDB API, the app provides a seamless experience using modern technologies such as Jetpack Compose for UI, Dagger-Hilt for dependency injection, Retrofit for network requests, and Coil for image loading. MOFLIX focuses on delivering an easy-to-navigate interface that allows users to explore movie details effortlessly.</h5>
 
 
