@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.navigation.compose.rememberNavController
 import com.example.retrofit.presentation.navigation.NavGraph
 import com.example.retrofit.presentation.ui.theme.RetrofitTheme
+import com.google.gson.internal.GsonBuildConfig
 import dagger.hilt.android.AndroidEntryPoint
 
 

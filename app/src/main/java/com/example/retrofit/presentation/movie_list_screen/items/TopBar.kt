@@ -68,6 +68,7 @@ fun TopBar(
                             id = R.drawable.baseline_home_24
                         ),
                         contentDescription = "null",
+                        tint = Color.White
                     )
                 }
 
