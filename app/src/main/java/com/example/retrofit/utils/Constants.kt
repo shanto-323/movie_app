@@ -15,7 +15,6 @@ object Constants {
     const val MOVIE_TYPE_TOP_RATED = "top_rated"
     const val MOVIE_TYPE_UPCOMING = "upcoming"
 
-
     //SCREENS
     const val SCREEN = "screen"
     const val SEARCH_SCREEN = "search_screen"
